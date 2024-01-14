@@ -1,4 +1,6 @@
-# AC(AtCoder) Library Document
+# AC(AtCoder) Library Document (@{keyword.tag})
+
+@{keyword.info}
 
 ## インストール方法
 
@@ -52,4 +54,5 @@
 
 ## ライセンス
 
-ヘッダファイル群(同梱の `atcoder` フォルダ以下)はCC0ライセンスで公開しています。詳しくは`atcoder/LICENSE`を参照してください。
+`/document_en/lib`, `/document_ja/lib` 以下で再配布しているライブラリを除きCC0ライセンスで公開しています。
+

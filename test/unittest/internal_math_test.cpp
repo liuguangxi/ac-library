@@ -1,8 +1,9 @@
-#include <gtest/gtest.h>
-#include <numeric>
+#include "atcoder/internal_math"
+
 #include "../utils/math.hpp"
 
-#include <atcoder/internal_math>
+#include <gtest/gtest.h>
+#include <numeric>
 
 using namespace atcoder;
 using uint = unsigned int;
@@ -55,7 +56,7 @@ TEST(InternalMathTest, Barrett) {
     ASSERT_EQ(0, bt.mul(0, 0));
 }
 
-TEST(InternalMathTest, BarrettBorder) {
+TEST(InternalMathTest, BarrettIntBorder) {
     const int mod_upper = std::numeric_limits<int>::max();
     for (unsigned int mod = mod_upper; mod >= mod_upper - 20; mod--) {
         internal::barrett bt(mod);
@@ -71,6 +72,28 @@ TEST(InternalMathTest, BarrettBorder) {
             ASSERT_EQ(((a2 * a2) % mod * a2) % mod, bt.mul(a, bt.mul(a, a)));
             for (auto b : v) {
                 ll b2 = b;
+                ASSERT_EQ((a2 * b2) % mod, bt.mul(a, b));
+            }
+        }
+    }
+}
+
+TEST(InternalMathTest, BarrettUintBorder) {
+    const unsigned int mod_upper = std::numeric_limits<unsigned int>::max();
+    for (unsigned int mod = mod_upper; mod >= mod_upper - 20; mod--) {
+        internal::barrett bt(mod);
+        std::vector<unsigned int> v;
+        for (int i = 0; i < 10; i++) {
+            v.push_back(i);
+            v.push_back(mod - i);
+            v.push_back(mod / 2 + i);
+            v.push_back(mod / 2 - i);
+        }
+        for (auto a : v) {
+            ull a2 = a;
+            ASSERT_EQ(((a2 * a2) % mod * a2) % mod, bt.mul(a, bt.mul(a, a)));
+            for (auto b : v) {
+                ull b2 = b;
                 ASSERT_EQ((a2 * b2) % mod, bt.mul(a, b));
             }
         }

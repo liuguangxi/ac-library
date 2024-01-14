@@ -69,13 +69,14 @@ It returns $g$ as the list of the changepoints, that satisfies the followings.
 - Both of `.first` and `.second` are strictly increasing.
 - No three changepoints are on the same line.
 - (1) The last element of the list is $(x, g(x))$, where $x$ is the maximum amount of the $s-t$ flow.
-- (2) The last element of the list is $(y, g(y))$, where $y = \min(x, \mathrm{flow\_limit})$.
+- (2) The last element of the list is $(y, g(y))$, where $y = \min(x, \mathrm{flow\\_limit})$.
 
 **@{keyword.constraints}**
 
 Let $x$ be the maximum cost among all edges.
 
 - $s \neq t$
+- $0 \leq s, t \lt n$
 - You can't call `min_cost_slope` or `min_cost_max_flow` multiple times.
 - The total amount of the flow is in `Cap`.
 - The total cost of the flow is in `Cost`.

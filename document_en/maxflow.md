@@ -43,18 +43,21 @@ It adds an edge oriented from the vertex `from` to the vertex `to` with the capa
 (2) Cap graph.flow(int s, int t, Cap flow_limit);
 ```
 
-- It augments the flow from $s$ to $t$ as much as possible. It returns the amount of the flow augmented.
+- (1) It augments the flow from $s$ to $t$ as much as possible. It returns the amount of the flow augmented.
+- (2) It augments the flow from $s$ to $t$ as much as possible, until reaching the amount of `flow_limit`. It returns the amount of the flow augmented.
 - You may call it multiple times. See [Appendix](./appendix.html) for further details.
 
 **@{keyword.constraints}**
 
 - $s \neq t$
+- $0 \leq s, t \lt n$
 - The answer should be in `Cap`.
 
 **@{keyword.complexity}**
 
-- $O(\min(n^{\frac{2}{3}}m, m^{\frac{3}{2}}))$ (if all the capacities are $1$) or
-- $O(n^2 m)$ (general),
+- $O((n + m) \sqrt{m})$ (if all the capacities are $1$),
+- $O(n^2 m)$ (general), or
+- $O(F(n + m))$, where $F$ is the returned value
 
 where $m$ is the number of added edges.
 
@@ -87,6 +90,8 @@ struct mf_graph<Cap>::edge {
 - The edges are ordered in the same order as added by `add_edge`.
 
 **@{keyword.constraints}**
+
+- (1): $0 \leq i \lt m$
 
 **@{keyword.complexity}**
 

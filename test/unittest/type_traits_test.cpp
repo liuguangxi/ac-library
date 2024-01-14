@@ -1,4 +1,5 @@
-#include <atcoder/internal_type_traits>
+#include "atcoder/internal_type_traits"
+
 #include <type_traits>
 
 #include <gtest/gtest.h>
@@ -20,6 +21,7 @@ static_assert(internal::is_signed_int<int>::value, "");
 static_assert(internal::is_signed_int<long>::value, "");
 static_assert(internal::is_signed_int<long long>::value, "");
 
+static_assert(!internal::is_signed_int<bool>::value, "");
 static_assert(!internal::is_signed_int<unsigned char>::value, "");
 static_assert(!internal::is_signed_int<unsigned short>::value, "");
 static_assert(!internal::is_signed_int<unsigned int>::value, "");
@@ -32,6 +34,7 @@ static_assert(!internal::is_unsigned_int<int>::value, "");
 static_assert(!internal::is_unsigned_int<long>::value, "");
 static_assert(!internal::is_unsigned_int<long long>::value, "");
 
+static_assert(internal::is_unsigned_int<bool>::value, "");
 static_assert(internal::is_unsigned_int<unsigned char>::value, "");
 static_assert(internal::is_unsigned_int<unsigned short>::value, "");
 static_assert(internal::is_unsigned_int<unsigned int>::value, "");

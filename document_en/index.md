@@ -1,4 +1,6 @@
-# AC(AtCoder) Library Document
+# AC(AtCoder) Library Document (@{keyword.tag})
+
+@{keyword.info}
 
 ## How to Install
 
@@ -53,4 +55,4 @@
 
 ## License
 
-The header files in `atcoder` folder are licensed under a CC0 license. See `atcoder/LICENSE` for further details.
+The files are licensed under a CC0 license, except for the third-party libraries located in the `/document_en/lib`, `/document_ja/lib` directory.

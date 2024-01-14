@@ -44,20 +44,22 @@ int graph.add_edge(int from, int to, Cap cap);
 ```
 
 - (1) 頂点 $s$ から $t$ へ流せる限り流し、流せた量を返す。
-- (2) 頂点 $s$ から $t$ へ流量 $flow_limit$ に達するまで流せる限り流し、流せた量を返す。
+- (2) 頂点 $s$ から $t$ へ流量 `flow_limit` に達するまで流せる限り流し、流せた量を返す。
 - 複数回呼ぶことも可能で、その時の挙動は [Appendix](./appendix.html) を参照してください。
 
 **@{keyword.constraints}**
 
 - $s \neq t$
+- $0 \leq s, t \lt n$
 - 返り値が `Cap` に収まる
 
 **@{keyword.complexity}**
 
 $m$ を追加された辺数として
 
-- $O(\min(n^{\frac{2}{3}}m, m^{\frac{3}{2}}))$ (辺の容量がすべて $1$ の時)
+- $O((n + m) \sqrt{m})$ (辺の容量がすべて $1$ の時)
 - $O(n^2 m)$
+- 返り値を $F$ として $O(F(n + m))$
 
 ## min_cut
 
@@ -89,6 +91,8 @@ struct mf_graph<Cap>::edge {
 - 辺の順番はadd_edgeで追加された順番と同一
 
 **@{keyword.constraints}**
+
+- (1): $0 \leq i \lt m$
 
 **@{keyword.complexity}**
 
